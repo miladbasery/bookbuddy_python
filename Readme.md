@@ -1,84 +1,55 @@
-# 📚 BookBuddy: ردیاب کتابخانه شخصی
+# 📚 BookBuddy: Personal Library Tracker
 
-`BookBuddy` یک برنامه خط فرمان (CLI) ساده است که با پایتون ساخته شده تا به شما در پیگیری عادات مطالعه، ثبت پیشرفت و مدیریت کتابخانه شخصی‌تان کمک کند.
-
----
-
-## 🚀 ویژگی‌های کلیدی
-
-* **افزودن کتاب:** ثبت کتاب‌های جدید با اطلاعات ضروری (عنوان، نویسنده، ژانر، تعداد صفحات).
-* **پشتیبانی از وراثت:** امکان افزودن انواع مختلف کتاب (کتاب چاپی، کتاب الکترونیکی، کتاب صوتی) با ویژگی‌های منحصربه‌فرد.
-* **ثبت مطالعه:** ثبت جلسات مطالعه (تعداد صفحات خوانده شده، یادداشت‌ها).
-* **گزارش پیشرفت:** مشاهده درصد پیشرفت و وضعیت مطالعه برای هر کتاب.
-* **مشاهده کتابخانه:** نمایش تمام کتاب‌های موجود در کتابخانه.
-* **ذخیره و بازیابی:** امکان **Export** (خروجی گرفتن) و **Import** (وارد کردن) داده‌های کتابخانه با فرمت‌های **JSON** یا **Pickle**.
-* **لاگ‌برداری:** ثبت تمام فعالیت‌های کاربر و خطاهای احتمالی در یک فایل `bookbuddy.log`.
+`BookBuddy` is a simple Command-Line Interface (CLI) application built with Python to help you track your reading habits, log your progress, and effortlessly manage your personal library.
 
 ---
 
-## 🛠️ معماری پروژه
+## 🚀 Key Features
 
-این پروژه از یک معماری ماژولار برای جداسازی مسئولیت‌ها (Separation of Concerns) استفاده می‌کند:
-
-bookbuddy/ ├── config/ │ └── logger.py # تنظیمات مربوط به لاگ‌برداری ├── models/ │ ├── book.py # کلاس پایه Book │ ├── ebook.py # کلاس EBook با وراثت از Book │ ├── audiobook.py # کلاس AudioBook با وراثت از Book │ └── reading_log.py # کلاس ReadingLog ├── services/ │ ├── reading_tracker.py # منطق اصلی برنامه (افزودن، یافتن، ثبت) │ └── progress_manager.py # منطق مربوط به محاسبه و نمایش پیشرفت ├── storage/ │ ├── json_handler.py # خواندن و نوشتن فایل‌های JSON │ ├── pickle_handler.py # خواندن و نوشتن فایل‌های Pickle │ └── data_exporter.py # مدیریت فرآیند ایمپورت و اکسپورت ├── utils/ │ └── decorators.py # دکوراتورها (مانند log_activity) └── main.py # فایل اصلی اجرایی و رابط کاربری (CLI)
-
-
----
-
-## ⚙️ نحوه اجرا
-
-این پروژه فقط از کتابخانه‌های استاندارد پایتون استفاده می‌کند و نیازی به نصب پکیج جداگانه ندارد.
-
-1.  مطمئن شوید که پایتون 3 (نسخه 3.7 یا بالاتر) روی سیستم شما نصب است.
-2.  ترمینال (یا Command Prompt) خود را باز کنید.
-3.  با دستور `cd` به پوشه‌ای بروید که پوشه `bookbuddy` در آن قرار دارد.
-4.  برنامه را با دستور زیر اجرا کنید:
-
-    ```bash
-    python bookbuddy/main.py
-    ```
-    *(توجه: اگر از پایتون 3 در کنار نسخه 2 استفاده می‌کنید، ممکن است نیاز باشد از `python3` به جای `python` استفاده کنید.)*
+* **Add Books:** Register new books with essential details (title, author, genre, total pages).
+* **Inheritance Support:** Add different formats of books (Print, E-Book, AudioBook), each with their own unique attributes.
+* **Reading Logs:** Record reading sessions, including the number of pages read and personal notes.
+* **Progress Reports:** View your reading status and completion percentage for each book.
+* **View Library:** Display a comprehensive list of all books currently in your library.
+* **Save & Restore:** **Export** and **Import** your library data using **JSON** or **Pickle** formats.
+* **Activity Logging:** Automatically track user actions and potential errors in a `bookbuddy.log` file.
 
 ---
 
-## 🖥️ نمونه خروجی
+## 🛠️ Project Architecture
 
-پس از اجرا، با منوی اصلی مواجه خواهید شد:
+This project utilizes a modular architecture to ensure a clear Separation of Concerns:
 
-📚 Welcome to BookBuddy! Track your reading, log progress, and manage your personal library.
+```text
+bookbuddy/
+├── config/
+│   └── logger.py            # Logging configuration
+├── models/
+│   ├── book.py              # Base Book class
+│   ├── ebook.py             # EBook class (inherits from Book)
+│   ├── audiobook.py         # AudioBook class (inherits from Book)
+│   └── reading_log.py       # ReadingLog class
+├── services/
+│   ├── reading_tracker.py   # Core application logic (add, search, log)
+│   └── progress_manager.py  # Logic for calculating and displaying progress
+├── storage/
+│   ├── json_handler.py      # Reading and writing JSON files
+│   ├── pickle_handler.py    # Reading and writing Pickle files
+│   └── data_exporter.py     # Import/Export process management
+├── utils/
+│   └── decorators.py        # Python decorators (e.g., @log_activity)
+└── main.py                  # Main executable script and CLI entry point
+⚙️ How to Run
+This project relies entirely on Python's standard libraries and does not require any external packages to be installed.
 
-Main Menu:
+Ensure that Python 3 (version 3.7 or higher) is installed on your system.
 
-Add a new book
+Open your terminal or command prompt.
 
-View all books
+Use the cd command to navigate to the directory containing the bookbuddy folder.
 
-Log reading progress
+Run the application using the following command:
 
-View reading progress
-
-Export book data
-
-Import book data
-
-Exit
-
-Enter your choice (1-7): 1
-
-
-### افزودن کتاب جدید
-
-📘 Add a New Book
-Enter book title: Atomic Habits Enter author name: James Clear Enter genre: Self-help Enter total pages: 320
-
-✅ Book 'Atomic Habits' added successfully!
-
-Returning to main menu... (Press Enter)
-
-
-### مشاهده پیشرفت
-
-📈 Reading Progress:
-Atomic Habits - 40/320 pages read (12.5%)
-
-Returning to main menu... (Press Enter)
+Bash
+python bookbuddy/main.py
+(Note: If you have Python 3 installed alongside Python 2, you may need to use python3 instead of python.)
