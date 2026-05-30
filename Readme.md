@@ -39,6 +39,8 @@ bookbuddy/
 ├── utils/
 │   └── decorators.py        # Python decorators (e.g., @log_activity)
 └── main.py                  # Main executable script and CLI entry point
+```
+
 ⚙️ How to Run
 This project relies entirely on Python's standard libraries and does not require any external packages to be installed.
 
