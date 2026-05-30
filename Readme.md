@@ -40,8 +40,9 @@ bookbuddy/
 │   └── decorators.py        # Python decorators (e.g., @log_activity)
 └── main.py                  # Main executable script and CLI entry point
 ```
+---
 
-⚙️ How to Run
+## ⚙️ How to Run
 This project relies entirely on Python's standard libraries and does not require any external packages to be installed.
 
 Ensure that Python 3 (version 3.7 or higher) is installed on your system.
@@ -52,6 +53,8 @@ Use the cd command to navigate to the directory containing the bookbuddy folder.
 
 Run the application using the following command:
 
-Bash
-python bookbuddy/main.py
-(Note: If you have Python 3 installed alongside Python 2, you may need to use python3 instead of python.)
+```Bash
+cd bookbuddy
+python main.py
+#(Note: If you have Python 3 installed alongside Python 2, you may need to use python3 instead of python.)
+```
